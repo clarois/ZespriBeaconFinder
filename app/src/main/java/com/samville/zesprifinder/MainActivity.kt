@@ -19,6 +19,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -97,6 +98,7 @@ class MainActivity : ComponentActivity() {
         var showLogo by remember { mutableStateOf(false) }
         var showButton by remember { mutableStateOf(false) }
         var showScanningUI by remember { mutableStateOf(false) }
+        var showMapPage by remember { mutableStateOf(false) }
         var distanceText by remember { mutableStateOf("Jarak ke Kiwi: -") }
         var lastUiUpdateTime by remember { mutableLongStateOf(0L) }
         var showDialog by remember { mutableStateOf(false) }
@@ -134,7 +136,7 @@ class MainActivity : ComponentActivity() {
                     .fillMaxSize()
                     .background(HayGrassGradient)
                     .padding(paddingValues)
-                    .padding(12.dp),
+                    .padding(0.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -143,12 +145,15 @@ class MainActivity : ComponentActivity() {
                         Image(
                             painter = painterResource(id = R.drawable.zespri_logo), // Ganti jadi nama file yang bener
                             contentDescription = "Zespri Logo",
-                            modifier = Modifier.size(500.dp)
+                            modifier = Modifier
+                                .size(900.dp)
+                                .padding(top = 20.dp)
+                                .offset( x = 0.dp, y = 60.dp)
                         )
                     }
                 }
 
-                Spacer(modifier = Modifier.height(10.dp))
+                //Spacer(modifier = Modifier.height(0.dp))
 
                 if (showButton) {
                     AnimatedVisibility(
@@ -160,16 +165,31 @@ class MainActivity : ComponentActivity() {
                                 onStartClick()
                                 showScanningUI = true
                             },
-                            colors = ButtonDefaults.buttonColors(containerColor = HayYellow),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+                            contentPadding = PaddingValues(0.dp),
                             modifier = Modifier
-                                .fillMaxWidth(0.2f)
-                                .height(48.dp)
+                                .fillMaxWidth(0.3f)
+                                .height(160.dp)
+                                .offset(x = 0.dp, y = -60.dp)
+                                .padding(bottom = 50.dp)
                         ) {
-                            Text(
-                                text = "Find Zespri",
-                                fontSize = 18.sp,
-                                color = ZespriGreen
-                            )
+                            Box(
+                                modifier = Modifier.fillMaxSize(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Image(
+                                    painter = painterResource(id = R.drawable.button_findzespri),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                            .fillMaxSize()
+                                            .width(30.dp)
+                                )
+                                Text(
+                                    text = "Find Zespri",
+                                    fontSize = 40.sp,
+                                    color = Color.White
+                                )
+                            }
                         }
                     }
                 }
