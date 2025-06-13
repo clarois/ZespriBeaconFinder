@@ -22,5 +22,5 @@ val HayWoodDark = Color(0xFFA67B5B) // Cokelat kayu tua
 val ZespriGreen = Color(0xFF4CAF50) // Hijau kiwi
 
 val HayGrassGradient = Brush.linearGradient(
-    colors = listOf(Color(0xFFA8E063), Color(0xFF56AB2F))
+    colors = listOf(Color(0xFFD5DF6C), Color(0xFFB8D12B))
 )

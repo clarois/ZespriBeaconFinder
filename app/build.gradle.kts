@@ -45,6 +45,7 @@ android {
 dependencies {
     // Compose BOM
     implementation(platform(libs.compose.bom))
+    implementation(libs.androidx.navigation.compose.android)
     androidTestImplementation(platform(libs.compose.bom))
 
     // Nordic BLE Library
@@ -59,11 +60,13 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.androidx.animation.core.android)
     implementation(libs.androidx.material3.android)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.0")
     debugImplementation(libs.compose.ui.tooling)
 
     // AndroidX
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
+    //implementation(libs.navigation.compose)
 
     // Kotlin Coroutines
     implementation(libs.kotlinx.coroutines.android)
